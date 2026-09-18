@@ -1,0 +1,21 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Finnian",
+                "Email": ""
+            }
+        ],
+        "Category": "Date and Time",
+        "Description": "A panel clock showing decimal (metric) time: 10 hours of 100 minutes of 100 seconds per day.",
+        "Icon": "clock",
+        "Id": "org.kde.plasma.metrictime",
+        "License": "MIT",
+        "Name": "Metric Time",
+        "ServiceTypes": [
+            "Plasma/Applet"
+        ],
+        "Version": "1.0"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
