@@ -5,6 +5,8 @@ import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.components as PlasmaComponents3
 import org.kde.kirigami as Kirigami
 
+import "../code/republican.js" as Republican
+
 PlasmoidItem {
     id: root
 
@@ -64,6 +66,7 @@ PlasmoidItem {
 
     readonly property string decimalText: formatDecimal(now, Plasmoid.configuration.timeFormat, Plasmoid.configuration.metricSuffix)
     readonly property string conventionalText: formatConventional(now)
+    readonly property string republicanDateText: Republican.describe(Republican.fromDate(now))
 
     // Redraw only as often as the visible unit actually changes: once per
     // decimal second (0.864s) for the seconds/fraction formats, once per
@@ -77,6 +80,9 @@ PlasmoidItem {
     }
 
     preferredRepresentation: compactRepresentation
+
+    toolTipMainText: decimalText
+    toolTipSubText: republicanDateText
 
     compactRepresentation: Item {
         Layout.minimumWidth: label.implicitWidth + Kirigami.Units.smallSpacing * 2
@@ -108,10 +114,11 @@ PlasmoidItem {
     }
 
     fullRepresentation: PlasmaComponents3.Page {
-        Layout.preferredWidth: Kirigami.Units.gridUnit * 16
-        Layout.preferredHeight: Kirigami.Units.gridUnit * 9
+        Layout.preferredWidth: content.implicitWidth + Kirigami.Units.largeSpacing * 2
+        Layout.preferredHeight: content.implicitHeight + Kirigami.Units.largeSpacing * 2
 
         ColumnLayout {
+            id: content
             anchors.fill: parent
             anchors.margins: Kirigami.Units.largeSpacing
             spacing: Kirigami.Units.largeSpacing
@@ -129,8 +136,26 @@ PlasmoidItem {
                 opacity: 0.7
             }
 
+            PlasmaComponents3.Label {
+                Layout.alignment: Qt.AlignHCenter
+                text: root.republicanDateText
+                font.bold: true
+            }
+
             Kirigami.Separator {
                 Layout.fillWidth: true
+            }
+
+            CalendarView {
+                Layout.fillWidth: true
+                visible: Plasmoid.configuration.showCalendar
+                now: root.now
+                active: root.expanded
+            }
+
+            Kirigami.Separator {
+                Layout.fillWidth: true
+                visible: Plasmoid.configuration.showCalendar
             }
 
             GridLayout {
@@ -147,8 +172,6 @@ PlasmoidItem {
                 PlasmaComponents3.Label { text: "Time zone:"; opacity: 0.7 }
                 PlasmaComponents3.Label { text: "System" }
             }
-
-            Item { Layout.fillHeight: true }
 
             PlasmaComponents3.Button {
                 Layout.alignment: Qt.AlignHCenter
