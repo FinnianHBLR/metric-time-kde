@@ -9,6 +9,7 @@ Kirigami.FormLayout {
     property alias cfg_timeFormat: formatCombo.currentIndex
     property alias cfg_metricSuffix: suffixCheck.checked
     property alias cfg_showConventionalInCompact: conventionalCheck.checked
+    property alias cfg_showCalendar: calendarCheck.checked
 
     QQC2.ComboBox {
         id: formatCombo
@@ -30,6 +31,12 @@ Kirigami.FormLayout {
         id: conventionalCheck
         Kirigami.FormData.label: "In panel:"
         text: "Also show conventional time next to it"
+    }
+
+    QQC2.CheckBox {
+        id: calendarCheck
+        Kirigami.FormData.label: "Popup:"
+        text: "Show decimal calendar"
     }
 
     Kirigami.InlineMessage {
