@@ -12,31 +12,20 @@ The popup also has a French-Revolutionary-style **decimal calendar** (12 months 
 [Cinnamon applet](https://github.com/Arranlr/Decimal-Time-and-Calendar-Linux-Mint-Applet).
 
 ## Install
-
-Make sure the KPackage tools are present (they ship with Plasma, so this is
-usually already installed):
-
 ```bash
-sudo pacman -S plasma-workspace
+kpackagetool6 --type Plasma/Applet -i build/metric-time-1.2.plasmoid
+
 ```
-
-Then from this folder:
-
-```bash
-chmod +x install.sh
-./install.sh
-```
-
-Right-click an empty spot on your panel → **Add Widgets…** → search
-**"Metric Time"** → drag it onto the panel.
-
-To remove it later:
-
+## Remove
 ```bash
 kpackagetool6 --type Plasma/Applet -r com.github.finnianhblr.metrictime
 ```
 
-(use `kpackagetool5` instead if your system is still on Plasma 5).
+## Create new build
+```bash
+zip -r build/metric-time-1.2.plasmoid metadata.json contents
+
+```
 
 ## Settings
 
