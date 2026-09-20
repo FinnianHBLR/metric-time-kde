@@ -33,7 +33,7 @@ Right-click an empty spot on your panel → **Add Widgets…** → search
 To remove it later:
 
 ```bash
-kpackagetool6 --type Plasma/Applet -r org.kde.plasma.metrictime
+kpackagetool6 --type Plasma/Applet -r com.github.finnianhblr.metrictime
 ```
 
 (use `kpackagetool5` instead if your system is still on Plasma 5).
@@ -129,10 +129,10 @@ old interface after an upgrade even though the new metadata is picked up. Restar
 **Still not showing?** Check the files landed, then look for QML errors:
 
 ```
-ls ~/.local/share/plasma/plasmoids/org.kde.plasma.metrictime/contents/{ui,code}
+ls ~/.local/share/plasma/plasmoids/com.github.finnianhblr.metrictime/contents/{ui,code}
 plasmashell --replace 2>&1 | grep -i -E "metrictime|qml|republican"   # click the widget, watch output
 # or, with plasma-sdk installed:
-plasmoidviewer -a ~/.local/share/plasma/plasmoids/org.kde.plasma.metrictime
+plasmoidviewer -a ~/.local/share/plasma/plasmoids/com.github.finnianhblr.metrictime
 ```
 
 ## Manual install (no script)
@@ -146,5 +146,5 @@ while you tweak `main.qml` (reload with `plasmashell --replace &` after
 each change, or use `plasmoidviewer` for faster iteration):
 
 ```bash
-ln -s /path/to/metric-time-kde ~/.local/share/plasma/plasmoids/org.kde.plasma.metrictime
+ln -s /path/to/metric-time-kde ~/.local/share/plasma/plasmoids/com.github.finnianhblr.metrictime
 ```

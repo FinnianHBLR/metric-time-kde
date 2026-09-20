@@ -15,7 +15,7 @@ fi
 
 echo "Using $TOOL"
 
-PLUGIN_ID="org.kde.plasma.metrictime"
+PLUGIN_ID="com.github.finnianhblr.metrictime"
 
 if "$TOOL" --type Plasma/Applet -s "$PLUGIN_ID" >/dev/null 2>&1; then
     echo "Already installed, upgrading..."

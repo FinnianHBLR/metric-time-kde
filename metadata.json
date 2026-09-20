@@ -1,21 +1,20 @@
 {
+    "KPackageStructure": "Plasma/Applet",
     "KPlugin": {
         "Authors": [
             {
                 "Name": "Finnian",
-                "Email": ""
+                "Email": "finnianhlr@gmail.com"
             }
         ],
         "Category": "Date and Time",
         "Description": "A panel clock showing decimal (metric) time: 10 hours of 100 minutes of 100 seconds per day, plus a navigable decimal calendar (12 months of 30 days) in the popup.",
         "Icon": "clock",
-        "Id": "org.kde.plasma.metrictime",
+        "Id": "com.github.finnianhblr.metrictime",
         "License": "MIT",
         "Name": "Metric Time",
-        "ServiceTypes": [
-            "Plasma/Applet"
-        ],
-        "Version": "1.2"
+        "Version": "1.2",
+        "Website": "https://github.com/FinnianHBLR/metric-time-kde"
     },
     "X-Plasma-API-Minimum-Version": "6.0"
 }
