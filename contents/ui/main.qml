@@ -130,6 +130,7 @@ PlasmoidItem {
             }
 
             PlasmaComponents3.Label {
+                visible: Plasmoid.configuration.showCalendar
                 Layout.alignment: Qt.AlignHCenter
                 text: root.republicanDateText
                 font.bold: true

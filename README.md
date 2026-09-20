@@ -11,7 +11,7 @@ The popup also has a French-Revolutionary-style **decimal calendar** (12 months 
 30 days, 5–6 epagomenal days at year's end), ported from the
 [Cinnamon applet](https://github.com/Arranlr/Decimal-Time-and-Calendar-Linux-Mint-Applet).
 
-## Install (CachyOS / any Arch-based Plasma 6 setup)
+## Install
 
 Make sure the KPackage tools are present (they ship with Plasma, so this is
 usually already installed):
@@ -74,23 +74,6 @@ Notes:
   was off by one day for roughly half the year in southern-hemisphere time
   zones, where DST begins after 22 Sept.)
 
-## Differences from the macOS version
-
-- **Time zone**: this version always follows the system clock. The macOS app
-  lets you pin a specific IANA zone from the menu; QML/Plasma has no
-  first-class timezone database binding, so that's left out here. If you
-  want it, the cleanest way in is a small C++ QML plugin using `QTimeZone`,
-  or shelling out to `TZ=<zone> date` from JS via a DataSource — happy to
-  wire either up if you want it.
-- **DST handling**: same idea as upstream — days are measured local-midnight
-  to local-midnight, so the decimal second stretches or squeezes on
-  changeover days instead of the clock ever reading past `10:00:00`.
-- **Redraw cadence**: same as upstream — once per decimal second (0.864s) in
-  the seconds/fraction formats, once per decimal minute (86.4s) in the
-  hours & minutes format.
-- **No "Open at Login"** item — Plasma widgets persist with your panel
-  layout automatically, so there's nothing to toggle.
-
 ## Troubleshooting
 
 **Upgraded but the popup still looks like the old version** — Plasma keeps a
@@ -99,29 +82,4 @@ old interface after an upgrade even though the new metadata is picked up. Restar
 
 ```
 ./install.sh --restart
-```
-
-(which clears `~/.cache/plasmashell/qmlcache` and runs `plasmashell --replace`).
-
-**Still not showing?** Check the files landed, then look for QML errors:
-
-```
-ls ~/.local/share/plasma/plasmoids/com.github.finnianhblr.metrictime/contents/{ui,code}
-plasmashell --replace 2>&1 | grep -i -E "metrictime|qml|republican"   # click the widget, watch output
-# or, with plasma-sdk installed:
-plasmoidviewer -a ~/.local/share/plasma/plasmoids/com.github.finnianhblr.metrictime
-```
-
-## Manual install (no script)
-
-```bash
-kpackagetool6 --type Plasma/Applet -i /path/to/metric-time-kde
-```
-
-Or symlink it straight into your local plasmoids folder for live editing
-while you tweak `main.qml` (reload with `plasmashell --replace &` after
-each change, or use `plasmoidviewer` for faster iteration):
-
-```bash
-ln -s /path/to/metric-time-kde ~/.local/share/plasma/plasmoids/com.github.finnianhblr.metrictime
 ```
