@@ -16,9 +16,6 @@
     <entry name="metricSuffix" type="Bool">
       <default>true</default>
     </entry>
-    <entry name="showConventionalInCompact" type="Bool">
-      <default>false</default>
-    </entry>
     <entry name="showCalendar" type="Bool">
       <default>true</default>
     </entry>

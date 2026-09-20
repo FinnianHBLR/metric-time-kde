@@ -98,13 +98,6 @@ PlasmoidItem {
                 font.family: "monospace"
                 elide: Text.ElideNone
             }
-
-            PlasmaComponents3.Label {
-                visible: Plasmoid.configuration.showConventionalInCompact
-                text: "(" + root.conventionalText + ")"
-                opacity: 0.65
-                font.pointSize: label.font.pointSize * 0.85
-            }
         }
 
         MouseArea {

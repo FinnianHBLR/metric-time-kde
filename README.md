@@ -4,7 +4,7 @@ A Plasma panel widget that shows decimal (metric) time — the KDE counterpart t
 [metric-time-mac](https://github.com/FinnianHBLR/metric-time-mac).
 
 The day is split into **10 hours of 100 minutes of 100 seconds**, so midnight is
-`0:00:00 M`, noon is `5:00:00 M`, and one decimal second is 0.864 SI seconds.
+`0:00:00 M`, noon is `5:00:00 M`, and one decimal second is 0.864 seconds.
 The trailing `M` marks the reading as metric.
 
 The popup also has a French-Revolutionary-style **decimal calendar** (12 months of
@@ -45,13 +45,8 @@ Right-click the widget on the panel → **Configure Metric Time…**
 - **Show** — hours & minutes (`5:43`), hours/minutes/seconds (`5:43:21`), or
   the raw day fraction (`.54321`)
 - **Suffix** — toggle the trailing `M` marker
-- **In panel** — optionally show the conventional time next to the decimal
-  one right on the panel (it's always shown in the popup regardless)
 - **Popup** — show or hide the decimal calendar (on by default). Today's
   decimal date stays visible either way.
-
-Click the widget to open a popup with both the decimal and conventional time
-and the raw day fraction.
 
 ## Calendar
 
@@ -95,24 +90,6 @@ Notes:
   hours & minutes format.
 - **No "Open at Login"** item — Plasma widgets persist with your panel
   layout automatically, so there's nothing to toggle.
-
-## Project layout
-
-```
-metric-time-kde/
-├── metadata.json           # plasmoid identity/metadata (Plasma 6 KPackage format)
-├── install.sh              # installs/upgrades via kpackagetool
-└── contents/
-    ├── code/
-    │   └── republican.js    # decimal calendar logic (names, date conversion)
-    ├── ui/
-    │   ├── main.qml         # panel + popup UI, decimal time math
-    │   ├── CalendarView.qml # navigable decimal calendar grid
-    │   └── configGeneral.qml
-    └── config/
-        ├── main.xml         # kcfg setting definitions
-        └── config.qml       # settings-page registration
-```
 
 ## Troubleshooting
 
