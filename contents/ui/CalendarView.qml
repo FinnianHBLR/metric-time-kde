@@ -129,6 +129,14 @@ ColumnLayout {
                     radius: Kirigami.Units.cornerRadius
                     color: isToday ? Kirigami.Theme.highlightColor : "transparent"
 
+                    PlasmaComponents3.ToolTip.text: Republican.DAYS[cell.dayInDecade]
+                    PlasmaComponents3.ToolTip.visible: hoverHandler.hovered
+                    PlasmaComponents3.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    
+                    HoverHandler{
+                        id: hoverHandler
+                    }
+
                     ColumnLayout {
                         anchors.centerIn: parent
                         spacing: 0
