@@ -13,7 +13,7 @@ The popup also has a French-Revolutionary-style **decimal calendar** (12 months 
 
 ## Install
 ```bash
-kpackagetool6 --type Plasma/Applet -i build/metric-time-1.2.plasmoid
+kpackagetool6 --type Plasma/Applet -i build/metric-time-[version].plasmoid
 
 ```
 ## Remove
@@ -23,7 +23,8 @@ kpackagetool6 --type Plasma/Applet -r com.github.finnianhblr.metrictime
 
 ## Create new build
 ```bash
-zip -r build/metric-time-1.2.plasmoid metadata.json contents
+sudo pacman -S zip
+zip -r build/metric-time-[new_version].plasmoid metadata.json contents
 
 ```
 
