@@ -37,6 +37,8 @@ Kirigami.FormLayout {
         id: analogCheck
         Kirigami.FormData.label: "Analog Dial:"
         text: "Show metric analog clock dial"
+        checked: cfg_showAnalogDial
+        onCheckedChanged: cfg_showAnalogDial = checked
     }
 
     Kirigami.InlineMessage {
