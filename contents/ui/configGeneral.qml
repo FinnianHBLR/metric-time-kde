@@ -9,6 +9,7 @@ Kirigami.FormLayout {
     property alias cfg_timeFormat: formatCombo.currentIndex
     property alias cfg_metricSuffix: suffixCheck.checked
     property alias cfg_showCalendar: calendarCheck.checked
+    property alias cfg_showAnalogDial: analogCheck.checked
 
     QQC2.ComboBox {
         id: formatCombo
@@ -30,6 +31,14 @@ Kirigami.FormLayout {
         id: calendarCheck
         Kirigami.FormData.label: "Popup:"
         text: "Show decimal calendar"
+    }
+
+    QQC2.CheckBox {
+        id: analogCheck
+        Kirigami.FormData.label: "Analog Dial:"
+        text: "Show metric analog clock dial"
+        checked: cfg_showAnalogDial
+        onCheckedChanged: cfg_showAnalogDial = checked
     }
 
     Kirigami.InlineMessage {
